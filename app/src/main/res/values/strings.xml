@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Ejemplos</string>
+    <string name="lista_compra_v1">LISTA COMPRA V1</string>
+    <string name="btInsertaItem">Insertar Item</string>
+    <string name="lblNombreItem">Nombre</string>
+    <string name="pistaNombreItem">Tomate</string>
+    <string name="lblCantidadItem">Cantidad</string>
+    <string name="btCancelar">Cancelar</string>
+    <string name="btGuardar">Guardar</string>
+    <string name="error_borrando">Error al intentar borrar el elemento</string>
+</resources>
