@@ -1,6 +1,8 @@
 package com.pmul.ejemplos.view.lista_compra_activity_v1;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -55,8 +57,19 @@ public class ListaCompraV1Activity extends AppCompatActivity {
 
     private boolean onDelete(int i) {
         try {
-            adaptadorItems.remove(items.get(i));
-            updateStatus();
+            AlertDialog.Builder builder = new AlertDialog.Builder( this );
+            String msg = String.valueOf(R.string.seguro_de_borrar).concat(items.get(i).getNombre());
+            builder.setTitle(msg);
+            builder.setPositiveButton( R.string.btBorrar, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int x) {
+                    adaptadorItems.remove(items.get(i));
+                    updateStatus();
+                }
+            });
+            builder.setNegativeButton(R.string.btCancelar, null);
+            builder.create().show();
+
             return true;
         } catch(NullPointerException exception) {
             Toast.makeText(this, R.string.error_borrando, Toast.LENGTH_SHORT).show();

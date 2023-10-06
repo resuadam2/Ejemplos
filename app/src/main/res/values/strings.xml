@@ -7,5 +7,7 @@
     <string name="lblCantidadItem">Cantidad</string>
     <string name="btCancelar">Cancelar</string>
     <string name="btGuardar">Guardar</string>
+    <string name="btBorrar">Borrar</string>
     <string name="error_borrando">Error al intentar borrar el elemento</string>
+    <string name="seguro_de_borrar">¿Seguro qué deseas borrar? : </string>
 </resources>
