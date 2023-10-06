@@ -49,13 +49,14 @@ public class ListaCompraV1Activity extends AppCompatActivity {
         // Modifica
         lvLista.setOnItemLongClickListener((adapterView, view, i, l) -> onDelete(i));
 
-        lvLista.setOnClickListener((adapterView, view, i, l) -> onEdit(i));
+        lvLista.setOnItemClickListener((adapterView, view, i, l) -> onEdit(i));
 
     }
 
     private boolean onDelete(int i) {
         try {
-            items.remove(i);
+            adaptadorItems.remove(items.get(i));
+            updateStatus();
             return true;
         } catch(NullPointerException exception) {
             Toast.makeText(this, R.string.error_borrando, Toast.LENGTH_SHORT).show();
