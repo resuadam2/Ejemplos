@@ -10,4 +10,8 @@
     <string name="btBorrar">Borrar</string>
     <string name="error_borrando">Error al intentar borrar el elemento</string>
     <string name="seguro_de_borrar">¿Seguro qué deseas borrar? : </string>
+    <string name="ejemplo_sencillo_bd">EJEMPLO SENCILLO BD</string>
+    <string name="lblPhone">Telefono</string>
+    <string name="lblName">Nombre</string>
+
 </resources>

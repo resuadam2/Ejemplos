@@ -1,0 +1,107 @@
+package com.pmul.ejemplos.bd;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+public class DBManagerEjemploSencillo extends SQLiteOpenHelper {
+    public static final String DB_NAME = "contactDB";
+    public static final int DB_VERSION = 2;
+
+    public static final String TABLE_CONTACTS = "contacts";
+    public static final String CONTACTS_COL_NAME = "_id";
+    public static final String CONTACTS_COL_TLF = "tlf";
+
+    public DBManagerEjemploSencillo(Context context) {
+        super(context, DB_NAME, null, DB_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        Log.i( "DBManager", DB_NAME + " creating: " + TABLE_CONTACTS);
+
+        try {
+            db.beginTransaction();
+            db.execSQL( "CREATE TABLE IF NOT EXISTS "
+                    + TABLE_CONTACTS + "("
+                    + CONTACTS_COL_NAME + " string(255) PRIMARY KEY NOT NULL,"
+                    + CONTACTS_COL_TLF + " string(20) NOT NULL)"
+            );
+            db.setTransactionSuccessful();
+        } catch(SQLException exc) {
+            Log.e( "DBManager.onCreate", exc.getMessage() );
+        }
+        finally {
+            db.endTransaction();
+        }
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int v1, int v2) {
+        Log.i( "DBManager", DB_NAME + " " + v1 + " -> " + v2 );
+
+        try {
+            db.beginTransaction();
+            db.execSQL( "DROP TABLE IF EXISTS " + TABLE_CONTACTS);
+            db.setTransactionSuccessful();
+        } catch(SQLException exc) {
+            Log.e( "DBManager.onUpgrade", exc.getMessage() );
+        } finally {
+            db.endTransaction();
+        }
+
+        this.onCreate( db );
+    }
+
+    /** Add a new row
+     * @param name El nombre del contacto
+     * @param tlf El telefono del contact
+     */
+    public void add(String name, String tlf) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = null;
+        ContentValues values = new ContentValues();
+
+        values.put(CONTACTS_COL_NAME, name);
+        values.put(CONTACTS_COL_TLF, tlf);
+
+        try {
+            db.beginTransaction();
+            cursor = db.query( TABLE_CONTACTS,
+                    new String[] { CONTACTS_COL_NAME },
+                    CONTACTS_COL_NAME + " = ?",
+                    new String[] { name }, null, null, null, "1");
+            if( cursor.getCount() > 0 ) {
+                db.update(TABLE_CONTACTS,
+                        values,
+                        CONTACTS_COL_NAME + "= ?",
+                        new String[] { name });
+            } else {
+                db.insert(TABLE_CONTACTS,
+                        null,
+                        values);
+            }
+            db.setTransactionSuccessful();
+        } catch (SQLException exception) {
+            Log.e( "DBManager.onAdd", exception.getMessage() );
+        } finally {
+            if( cursor != null) {
+                cursor.close();
+            }
+            db.endTransaction();
+        }
+    }
+
+    /** Returns a Cursor for all the contacts in the database */
+    public Cursor getAllContacts()
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        return db.query( DBManagerEjemploSencillo.TABLE_CONTACTS,
+                null, null, null, null, null, null );
+    }
+}
