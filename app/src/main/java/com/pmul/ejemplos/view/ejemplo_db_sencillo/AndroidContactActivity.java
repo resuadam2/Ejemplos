@@ -21,7 +21,7 @@ public class AndroidContactActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        this.setContentView( R.layout.activity_main );
+        this.setContentView( R.layout.activity_android_contact );
 
         final ListView lvContacts = this.findViewById( R.id.lvContacts );
         final ImageButton btAdd = this.findViewById( R.id.btAdd );
