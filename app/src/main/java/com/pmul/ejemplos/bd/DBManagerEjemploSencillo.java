@@ -96,6 +96,47 @@ public class DBManagerEjemploSencillo extends SQLiteOpenHelper {
         }
     }
 
+    /** Removes a record given the name of the contact.
+     * @param name The name of the contact, as a String.
+     */
+    public void remove(String name)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        try {
+            db.beginTransaction();
+            db.delete( TABLE_CONTACTS, CONTACTS_COL_NAME + " = ?", new String[]{ name } );
+            db.setTransactionSuccessful();
+        } catch(SQLException exc) {
+            Log.e( "dbRemove", exc.getMessage() );
+        }
+        finally {
+            db.endTransaction();
+        }
+    }
+
+    /** Returns a Cursor for the records matching the text criteria.
+     * @param text The name to look for, as a String.
+     * @return A Cursor for the found records.
+     */
+    public Cursor searchFor(String text)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor toret = null;
+
+        try {
+            toret = db.query( TABLE_CONTACTS, null,
+                    CONTACTS_COL_NAME + " LIKE ?",
+                    new String[] { text }, null, null, null );
+        }
+        catch(SQLException exc) {
+            Log.e( "DBManager.searchFor", exc.getMessage() );
+        }
+
+        return toret;
+    }
+
+
     /** Returns a Cursor for all the contacts in the database */
     public Cursor getAllContacts()
     {

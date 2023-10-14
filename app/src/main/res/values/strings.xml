@@ -13,5 +13,13 @@
     <string name="ejemplo_sencillo_bd">EJEMPLO SENCILLO BD</string>
     <string name="lblPhone">Telefono</string>
     <string name="lblName">Nombre</string>
+    <string name="lblOk">Ok</string>
+    <string name="msgNoContacts">No existen contactos</string>
+    <string name="lblDeleteContact">Borrar Contacto</string>
+    <string name="lblModifyContact">Editar Contacto</string>
+    <string name="lblCallContact">Llamar al Contacto</string>
+    <string name="lblCancel">Cancelar</string>
+    <string name="msgInvalidPosition">Posición Inválida</string>
+    <string name="msgNoCall">No es posible realizar la llamada</string>
 
 </resources>
