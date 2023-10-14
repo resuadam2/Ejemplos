@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.pmul.ejemplos.R;
+import com.pmul.ejemplos.view.ajustes_v2.AjustesActivity;
+import com.pmul.ejemplos.view.ajustes_v2.AjustesFragment;
 import com.pmul.ejemplos.view.ejemplo_db_sencillo.AndroidContactActivity;
 import com.pmul.ejemplos.view.lista_compra_activity_v1.ListaCompraV1Activity;
 
@@ -24,6 +26,15 @@ public class MainActivity extends AppCompatActivity {
         Button b2 = (Button) findViewById(R.id.ejemplo_sencillo_bd);
 
         b2.setOnClickListener(v->openEjemploSencilloDB());
+
+        Button b3 = (Button) findViewById(R.id.ajustes_v2);
+
+        b3.setOnClickListener(v->openAjustesV2());
+    }
+
+    private void openAjustesV2() {
+        Intent intent = new Intent(this, AjustesActivity.class);
+        startActivity(intent);
     }
 
     private void openListaCompraV1() {

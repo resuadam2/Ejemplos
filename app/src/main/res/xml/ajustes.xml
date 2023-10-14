@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Pedidos" >
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/descOrderBy"
+            android:entryValues="@array/orderBy"
+            android:key="orderByClientes"
+            android:summary="Seleccione el orden para mostrar clientes"
+            android:title="Orden" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pedidosEncadenados"
+            android:summary="Debe presionar Atrás para volver"
+            android:title="Encadenar pedidos" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Artículos" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="mostrarDescatalogados"
+            android:summary="Mostrar artículos descatalogados"
+            android:title="Descatalogados" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Resumen" >
+        <EditTextPreference
+            android:dialogTitle="Introduzca su correo"
+            android:key="correo"
+            android:summary="Envío del resumen de ventas"
+            android:title="Correo electrónico" />
+    </PreferenceCategory>
+    <Preference
+        android:summary="Ir a la web de la empresa"
+        android:title="Más información" >
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="http://www.google.com/" />
+    </Preference>
+</PreferenceScreen>

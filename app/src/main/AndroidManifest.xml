@@ -24,6 +24,8 @@
         <activity android:name=".view.lista_compra_activity_v1.ListaCompraV1Activity"></activity>
         <activity android:name=".view.lista_compra_activity_v1.ItemEditionActivity"></activity>
         <activity android:name=".view.ejemplo_db_sencillo.AndroidContactActivity"></activity>
+        <activity android:name=".view.ajustes_v2.AjustesActivity"
+            android:parentActivityName=".view.MainActivity"></activity>
     </application>
 
 </manifest>

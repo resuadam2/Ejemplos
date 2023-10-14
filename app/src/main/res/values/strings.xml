@@ -21,5 +21,8 @@
     <string name="lblCancel">Cancelar</string>
     <string name="msgInvalidPosition">Posición Inválida</string>
     <string name="msgNoCall">No es posible realizar la llamada</string>
+    <string name="ajustes_v2">Ajustes V2 Fragment</string>
+    <string name="action_search">Buscar</string>
+    <string name="action_settings">Ajustes</string>
 
 </resources>
