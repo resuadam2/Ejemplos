@@ -26,6 +26,10 @@
         <activity android:name=".view.ejemplo_db_sencillo.AndroidContactActivity"></activity>
         <activity android:name=".view.ajustes_v2.AjustesActivity"
             android:parentActivityName=".view.MainActivity"></activity>
+        <activity android:name=".view.caja_super.CajaSuperActivity"
+            android:parentActivityName=".view.MainActivity"></activity>
+        <activity android:name=".view.caja_super.AddProductActivity"
+            android:parentActivityName=".view.caja_super.CajaSuperActivity"></activity>
     </application>
 
 </manifest>

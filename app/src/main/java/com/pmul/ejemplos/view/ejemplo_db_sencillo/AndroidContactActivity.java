@@ -31,7 +31,7 @@ public class AndroidContactActivity extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         this.setContentView( R.layout.activity_android_contact );
 
-        final ListView lvContacts = this.findViewById( R.id.lvContacts );
+        final ListView lvContacts = this.findViewById( R.id.lvProducts);
         final ImageButton btAdd = this.findViewById( R.id.btAdd );
         final ImageButton btSearch = this.findViewById( R.id.btSearch );
 
@@ -47,7 +47,7 @@ public class AndroidContactActivity extends AppCompatActivity {
     {
         super.onResume();
 
-        final ListView lvContacts = this.findViewById( R.id.lvContacts );
+        final ListView lvContacts = this.findViewById( R.id.lvProducts);
 
         this.mainCursorAdapter = new SimpleCursorAdapter( this,
                 R.layout.lvcontacts,
@@ -73,7 +73,7 @@ public class AndroidContactActivity extends AppCompatActivity {
     {
         super.onCreateContextMenu(menu, v, menuInfo);
 
-        if ( v.getId() == R.id.lvContacts ) {
+        if ( v.getId() == R.id.lvProducts) {
             this.getMenuInflater().inflate( R.menu.lvcontacts_context_menu, menu );
         }
 

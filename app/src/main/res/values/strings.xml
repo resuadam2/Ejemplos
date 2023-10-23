@@ -24,5 +24,11 @@
     <string name="ajustes_v2">Ajustes V2 Fragment</string>
     <string name="action_search">Buscar</string>
     <string name="action_settings">Ajustes</string>
+    <string name="caja_tittle">Carrito de la compra</string>
+    <string name="lblProduct">Producto</string>
+    <string name="lblProductPriceUni">Precio Und</string>
+    <string name="lblTotal">Total</string>
+    <string name="lblZero">0</string>
+    <string name="lblEuro">€</string>
 
 </resources>

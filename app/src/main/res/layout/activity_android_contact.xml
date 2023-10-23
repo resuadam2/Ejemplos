@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".view.ejemplo_db_sencillo.AndroidContactActivity">
 
-    <ListView android:id="@+id/lvContacts"
+    <ListView android:id="@+id/lvProducts"
         android:layout_weight="0.8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
