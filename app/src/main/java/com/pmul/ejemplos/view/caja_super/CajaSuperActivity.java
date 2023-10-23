@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class CajaSuperActivity extends AppCompatActivity {
     private ProductsAdapter adaptadorProducts;
     private ArrayList<Product> products;
-
+/*
     protected void onCreate(Bundle saverInstanceState) {
         super.onCreate(saverInstanceState);
 
@@ -86,5 +86,5 @@ public class CajaSuperActivity extends AppCompatActivity {
 
         lblTotal.setText(Double.toString(getTotalPrice()));
     }
-
+*/
 }

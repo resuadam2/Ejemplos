@@ -63,8 +63,8 @@ public class DBManagerCajaSuper extends SQLiteOpenHelper {
         addProduct("Patata", 40, 10, 3);
         addProduct("Tomate", 60, 20, 2);
         addProduct("Mandarina", 30, 5, 2.5);
-        addProductCarrito("Patata", 5);
-        addProductCarrito("Tomate", 10);
+        //addProductCarrito("Patata", 5);
+        //addProductCarrito("Tomate", 10);
     }
 
 
@@ -82,7 +82,7 @@ public class DBManagerCajaSuper extends SQLiteOpenHelper {
             db.endTransaction();
         }
     }
-
+/*
     private void addProductCarrito(String name, int cant) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = null;
@@ -125,7 +125,7 @@ public class DBManagerCajaSuper extends SQLiteOpenHelper {
             db.endTransaction();
         }
     }
-
+*/
     public void addProduct(String name, int stock, int w_stock, double price) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = null;
